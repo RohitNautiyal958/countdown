@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CountDown</title>
+    <style>
+      body {
+        background-color: #414141;
+      }
+      .box1 {
+        border: 2px solid rgb(116, 218, 203);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 700px;
+        color: white;
+      }
+      #timer {
+        border: 2px solid rgb(115, 175, 215);
+        border-radius: 20px;
+        width: 100px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .btn {
+        margin-top: 20px;
+      }
+      #btn1 {
+        border-radius: 5px;
+        height: 50px;
+        width: 80px;
+        color: white;
+        font-size: larger;
+        font-weight: 200;
+        background-color: rgb(18, 124, 59);
+      }
+      #btn2 {
+        border-radius: 5px;
+        height: 50px;
+        width: 80px;
+        color: white;
+        font-size: larger;
+        font-weight: 200;
+        background-color: rgb(202, 34, 34);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1">
+      <div id="timer">
+        <h2></h2>
+      </div>
+      <div class="btn">
+        <button id="btn1">Start</button>
+        <button id="btn2">Stop</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    let count=60
+
+    const timer = function () {
+      if (count > 0) {
+        count--;
+        document.querySelector("h2").innerHTML = count;
+      }
+    };
+
+    let A;
+    document.querySelector("#btn1").addEventListener("click", () => {
+      A = setInterval(timer, 1000);
+    });
+
+    document.querySelector("#btn2").addEventListener("click", () => {
+      clearInterval(A);
+    });
+  </script>
+</html>
